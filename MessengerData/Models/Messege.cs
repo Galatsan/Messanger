@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MessengerCore.Models;
 
 namespace MessengerData.Models
 {
-    public class Messege
+    public class Message : Entity
     {
-        public string Id { get; set; }
         public string[] Recipients { get; set; }
         public string Subject { get; set; }
         public string Body { get; set; }

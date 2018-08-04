@@ -24,7 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MessengerBL\MessengerBL.csproj" />
+    <ProjectReference Include="..\MessengerBL\MessangerBL.csproj" />
+    <ProjectReference Include="..\MessengerDependencies\MessangerDependencies.csproj" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

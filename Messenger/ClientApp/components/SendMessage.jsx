@@ -63,7 +63,7 @@ class SendMessage extends Component {
     }
 
     sendMessage(event) {
-        e.preventDefault();
+        event.preventDefault();
         if (this.state.recipientsValid && this.state.subjectValid && this.state.bodyValid) {
             this.setState({ disableForm: true });
             const message = {

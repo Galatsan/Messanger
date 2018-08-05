@@ -1,8 +1,8 @@
 ﻿import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Message from '../components/Message';
-import SendMessage from '../components/SendMessage';
+import MessagesList from '../components/messagesList';
+import SendMessage from '../components/sendMessage';
 import * as actionTypes from '../store/actions';
 
 class Messanger extends Component {
@@ -11,13 +11,7 @@ class Messanger extends Component {
         return (
             <div>
                 <SendMessage sendMessages={this.props.onSendMessages} />
-                {this.props.messages.map(message => (
-                    <Message
-                        id={message.Id}
-                        recipients={message.Recipients}
-                        subject={message.Subject}
-                        body={message.Body} />
-                ))}
+                <MessagesList messages={this.props.messages} />
             </div>
         );
     }

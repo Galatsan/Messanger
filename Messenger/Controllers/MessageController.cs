@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using MessangerBL.Interfaces;
+using MessangerBL.Models;
 using Messenger.Models;
-using MessengerBL.Interfaces;
-using MessengerBL.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -13,17 +13,29 @@ namespace Messenger.Controllers
     public class MessageController : Controller
     {
         private readonly IMessageService userService;
+        private readonly INotificationService notificationService;
 
-        public MessageController(IMessageService userService)
+        public MessageController(IMessageService userService, INotificationService notificationService)
         {
             this.userService = userService;
+            this.notificationService = notificationService;
         }
 
         [HttpPost]
         public async Task<string> SaveAsync([FromBody]CreateMessageViewModel message)
         {
+            NotificationDTO notification = new NotificationDTO
+            {
+                Body = message.Body,
+                Recipients = string.Join(';', message.Recipients)
+            };
+            var isSent = await notificationService.SendMessageToNotificationServiceAsync(notification);
+
             var mapperCreateMessageViewModelToMessageDTO = new MapperConfiguration(cfg => cfg.CreateMap<CreateMessageViewModel, MessageDTO>()).CreateMapper();
             var messageDTO = mapperCreateMessageViewModelToMessageDTO.Map<CreateMessageViewModel, MessageDTO>(message);
+
+            messageDTO.IsSent = isSent;
+
             return await userService.SaveAsync(messageDTO);
         }
 

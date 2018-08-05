@@ -1,10 +1,9 @@
-﻿using MessengerData.Interfaces;
-using MessengerData.Models;
+﻿using MessangerData.Interfaces;
+using MessangerData.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace MessengerData.Repositories
+namespace MessangerData.Repositories
 {
     public class MessageRepository : IMessageRepository
     {

@@ -1,8 +1,8 @@
-﻿using MessengerBL.Models;
+﻿using MessangerBL.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MessengerBL.Interfaces
+namespace MessangerBL.Interfaces
 {
     public interface IMessageService
     {

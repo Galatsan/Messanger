@@ -1,7 +1,7 @@
-﻿using MessengerData.Models;
+﻿using MessangerData.Models;
 using System.Collections.Generic;
 
-namespace MessengerData.Interfaces
+namespace MessangerData.Interfaces
 {
     public interface IMessageRepository
     {

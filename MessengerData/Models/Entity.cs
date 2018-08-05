@@ -1,6 +1,6 @@
-﻿using MessengerData.Interfaces;
+﻿using MessangerData.Interfaces;
 
-namespace MessengerCore.Models
+namespace MessangerData.Models
 {
     public class Entity : IEntity
     {

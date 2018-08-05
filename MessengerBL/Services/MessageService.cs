@@ -1,16 +1,12 @@
 ﻿using AutoMapper;
+using MessangerBL.Interfaces;
 using MessangerBL.Models;
-using MessengerBL.Interfaces;
-using MessengerBL.Models;
-using MessengerData.Interfaces;
-using MessengerData.Models;
-using Newtonsoft.Json;
-using System;
+using MessangerData.Interfaces;
+using MessangerData.Models;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace MessengerBL.Services
+namespace MessangerBL.Services
 {
     public class MessageService : IMessageService
     {
@@ -23,12 +19,6 @@ namespace MessengerBL.Services
 
         public async Task<string> SaveAsync(MessageDTO entity)
         {
-            entity.IsSent = await SendMessageToNotificationServiceAsync(new NotificationDTO
-            {
-                Body = entity.Body,
-                Recipients = string.Join(';', entity.Recipients)
-            });
-
             return await Task.Run(() =>
             {
                 var mapperMessageToDTOMessage = new MapperConfiguration(cfg => cfg.CreateMap<MessageDTO, Message>()).CreateMapper();
@@ -52,28 +42,6 @@ namespace MessengerBL.Services
                 }
                 return result;
             });
-        }
-
-        private async Task<bool> SendMessageToNotificationServiceAsync(NotificationDTO notification)
-        {
-            var result = false;
-            try
-            {
-                using (var client = new HttpClient())
-                {
-                    var json = JsonConvert.SerializeObject(notification);
-                    client.BaseAddress = new Uri("http://test:8080");
-                    var content = new FormUrlEncodedContent(new[]
-                    {
-                        new KeyValuePair<string, string>("notification", json)
-                    });
-                    var httpResult = await client.PostAsync("/api/Notification", content);
-                    var resultContent = await httpResult.Content.ReadAsStringAsync();
-                    result = true;
-                }
-            }
-            catch { }
-            return result;
         }
     }
 }

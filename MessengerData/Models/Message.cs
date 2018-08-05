@@ -1,6 +1,4 @@
-﻿using MessengerCore.Models;
-
-namespace MessengerData.Models
+﻿namespace MessangerData.Models
 {
     public class Message : Entity
     {

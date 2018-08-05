@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import Messanger from './containers/Messanger';
+import Messanger from './containers/messanger';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
         <Messanger />
       </div>
     );

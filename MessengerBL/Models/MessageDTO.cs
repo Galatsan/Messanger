@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MessengerBL.Models
+﻿namespace MessangerBL.Models
 {
     public class MessageDTO
     {

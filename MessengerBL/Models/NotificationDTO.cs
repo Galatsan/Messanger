@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MessangerBL.Models
+﻿namespace MessangerBL.Models
 {
     public class NotificationDTO
     {

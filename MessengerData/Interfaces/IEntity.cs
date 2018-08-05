@@ -1,4 +1,4 @@
-﻿namespace MessengerData.Interfaces
+﻿namespace MessangerData.Interfaces
 {
     public interface IEntity
     {

@@ -27,7 +27,7 @@ namespace Messenger.Controllers
             NotificationDTO notification = new NotificationDTO
             {
                 Body = message.Body,
-                Recipients = string.Join(';', message.Recipients)
+                Recipients = message.Recipients!= null ? string.Join(';', message.Recipients) : string.Empty
             };
             var isSent = await notificationService.SendMessageToNotificationServiceAsync(notification);
 

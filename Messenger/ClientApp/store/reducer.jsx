@@ -12,11 +12,11 @@ const reducer = (state = initialState, action) => {
                 Recipients: action.MessageData.Recipients,
                 Subject: action.MessageData.Subject,
                 Body: action.MessageData.Body
-            }
+            };
 
             return {
                 messages: state.messages.concat(message)
-            }
+            };
     }
     return state;
 };

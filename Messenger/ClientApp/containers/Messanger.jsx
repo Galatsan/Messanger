@@ -29,14 +29,14 @@ const mapDispatchToProps = dispatch => {
             {
                 type: actionTypes.SEND_MESSAGE,
                 MessageData:
-                    {
-                        Id: id,
-                        Recipients: recipients,
-                        Subject: subject,
-                        Body: body
-                    }
-            }),
-    }
+                {
+                    Id: id,
+                    Recipients: recipients,
+                    Subject: subject,
+                    Body: body
+                }
+            })
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Messanger);

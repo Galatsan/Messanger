@@ -29,12 +29,12 @@ namespace Messenger.Controllers
                 Body = message.Body,
                 Recipients = string.Join(';', message.Recipients)
             };
-            var isSent = await notificationService.SendMessageToNotificationServiceAsync(notification);
+            //var isSent = await notificationService.SendMessageToNotificationServiceAsync(notification);
 
             var mapperCreateMessageViewModelToMessageDTO = new MapperConfiguration(cfg => cfg.CreateMap<CreateMessageViewModel, MessageDTO>()).CreateMapper();
             var messageDTO = mapperCreateMessageViewModelToMessageDTO.Map<CreateMessageViewModel, MessageDTO>(message);
 
-            messageDTO.IsSent = isSent;
+            messageDTO.IsSent = false;
 
             return await userService.SaveAsync(messageDTO);
         }

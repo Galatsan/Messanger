@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessangerBL", "MessengerBL\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessangerData", "MessengerData\MessangerData.csproj", "{0580A715-3A81-49D6-B877-1708C0206FB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessangerDependencies", "MessengerDependencies\MessangerDependencies.csproj", "{A6D15618-7FC1-4891-AB4C-9EFE78AB7A45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessangerDependencies", "MessengerDependencies\MessangerDependencies.csproj", "{A6D15618-7FC1-4891-AB4C-9EFE78AB7A45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messanger.Test", "Messanger.Test\Messanger.Test.csproj", "{530CEA45-0A72-4067-8856-3C7BE9853ADF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{A6D15618-7FC1-4891-AB4C-9EFE78AB7A45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6D15618-7FC1-4891-AB4C-9EFE78AB7A45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6D15618-7FC1-4891-AB4C-9EFE78AB7A45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{530CEA45-0A72-4067-8856-3C7BE9853ADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{530CEA45-0A72-4067-8856-3C7BE9853ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{530CEA45-0A72-4067-8856-3C7BE9853ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{530CEA45-0A72-4067-8856-3C7BE9853ADF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,9 +1,7 @@
 ﻿import * as actionTypes from './actions';
-
 const initialState = {
     messages: []
 };
-
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.SEND_MESSAGE:
@@ -13,12 +11,10 @@ const reducer = (state = initialState, action) => {
                 Subject: action.MessageData.Subject,
                 Body: action.MessageData.Body
             };
-
             return {
                 messages: state.messages.concat(message)
             };
     }
     return state;
 };
-
 export default reducer;

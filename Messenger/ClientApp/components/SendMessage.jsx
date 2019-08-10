@@ -1,5 +1,5 @@
 ﻿import React, { Component } from 'react';
-import saveMessage from "../services/messangerService"
+import saveMessage from "../services/messangerService";
 
 class SendMessage extends Component {
 
@@ -63,16 +63,16 @@ class SendMessage extends Component {
     }
 
     sendMessage(event) {
-        e.preventDefault();
+        event.preventDefault();
         if (this.state.recipientsValid && this.state.subjectValid && this.state.bodyValid) {
             this.setState({ disableForm: true });
             const message = {
                 Recipients: this.state.recipients.split(";"),
                 Subject: this.state.subject,
                 Body: this.state.body
-            }
+            };
             saveMessage(message).then(response => {
-                let id = response.data
+                let id = response.data;
                 this.props.sendMessages(id, this.state.recipients, this.state.subject, this.state.body);
                 this.setState(
                     {
@@ -84,7 +84,7 @@ class SendMessage extends Component {
                         bodyValid: false,
                         disableForm: false
                     });
-            })
+            });
         }
     }
 

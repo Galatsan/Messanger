@@ -33,7 +33,7 @@ class MessagesList extends Component {
                     </table>
                 </div>
             </div>
-        )
+        );
     }
 }
 

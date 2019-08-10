@@ -27,14 +27,14 @@ namespace Messenger.Controllers
             NotificationDTO notification = new NotificationDTO
             {
                 Body = message.Body,
-                Recipients = string.Join(';', message.Recipients)
+                Recipients = message.Recipients!= null ? string.Join(';', message.Recipients) : string.Empty
             };
-            var isSent = await notificationService.SendMessageToNotificationServiceAsync(notification);
+            //var isSent = await notificationService.SendMessageToNotificationServiceAsync(notification);
 
             var mapperCreateMessageViewModelToMessageDTO = new MapperConfiguration(cfg => cfg.CreateMap<CreateMessageViewModel, MessageDTO>()).CreateMapper();
             var messageDTO = mapperCreateMessageViewModelToMessageDTO.Map<CreateMessageViewModel, MessageDTO>(message);
 
-            messageDTO.IsSent = isSent;
+            messageDTO.IsSent = false;
 
             return await userService.SaveAsync(messageDTO);
         }

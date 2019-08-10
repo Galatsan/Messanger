@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Messanger.Filters;
 
 namespace Messenger
 {
@@ -20,7 +21,11 @@ namespace Messenger
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc(options => 
+            {
+                options.Filters.Add(typeof(ProfileFilterAttribute));
+                options.Filters.Add(typeof(ExceptionFilterAttribute));
+            });
             services.AddDependencies(Configuration);
         }
 
